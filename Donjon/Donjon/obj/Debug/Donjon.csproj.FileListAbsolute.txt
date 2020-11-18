@@ -1,0 +1,7 @@
+D:\Projects\CSharp\Donjon\Donjon\Donjon\bin\Debug\Donjon.exe.config
+D:\Projects\CSharp\Donjon\Donjon\Donjon\bin\Debug\Donjon.exe
+D:\Projects\CSharp\Donjon\Donjon\Donjon\bin\Debug\Donjon.pdb
+D:\Projects\CSharp\Donjon\Donjon\Donjon\obj\Debug\Donjon.csprojAssemblyReference.cache
+D:\Projects\CSharp\Donjon\Donjon\Donjon\obj\Debug\Donjon.csproj.CoreCompileInputs.cache
+D:\Projects\CSharp\Donjon\Donjon\Donjon\obj\Debug\Donjon.exe
+D:\Projects\CSharp\Donjon\Donjon\Donjon\obj\Debug\Donjon.pdb
