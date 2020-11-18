@@ -238,7 +238,7 @@ namespace Donjon
             if (choice == "s")
             {
                 Console.Clear();
-                Console.WriteLine("> going to north...");
+                Console.WriteLine("> going to south...");
                 roomId = 2;
             }
             else
