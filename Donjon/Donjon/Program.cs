@@ -10,34 +10,40 @@ namespace Donjon
     {
         static void Main(string[] args)
         {
+            Dictionary<string, string> sentenceWhenMoving = new Dictionary<string, string>();
+            sentenceWhenMoving.Add("n", "> going to north !!!!");
+            sentenceWhenMoving.Add("s", "> going to south !!!!");
+            sentenceWhenMoving.Add("e", "> going to east !!!!");
+            sentenceWhenMoving.Add("w", "> going to west !!!!");
+
             Console.OutputEncoding = Encoding.UTF8;
             Intro();
             bool gameRunning = true;
-            int room_number = 2;
+            int room_number = 1;
             while (gameRunning)
             {
-                if (room_number == 1)
+                if (room_number == 0)
                 {
-                    room_number = Room1(room_number);
+                    room_number = Room1(room_number, sentenceWhenMoving);
                 }
-                else if (room_number == 2)
+                else if (room_number == 1)
                 {
                     room_number = Room2(room_number);
                 }
-                else if (room_number == 3)
+                else if (room_number == 2)
                 {
                     room_number = Room3(room_number);
                 }
-                else if (room_number == 4)
+                else if (room_number == 3)
                 {
                     Loose();
                     gameRunning = false;
                 }
-                else if (room_number == 5)
+                else if (room_number == 4)
                 {
                     room_number = Room4(room_number);
                 }
-                else if (room_number == 6)
+                else if (room_number == 5)
                 {
                     Win();
                     gameRunning = false;
@@ -116,7 +122,7 @@ namespace Donjon
             Console.ReadKey();
         }
 
-        static int Room1(int roomId)
+        static int Room1(int roomId, Dictionary<string, string> sentenceWhenMoving)
         {
             Console.WriteLine("▓▓▓▓▓▓▓╣   ╠▓▓▓▓▓▓▓");
             Console.WriteLine("▓╔═════╣ n ╠═════╗▓");
@@ -132,19 +138,20 @@ namespace Donjon
             string choice = Console.ReadLine();
             if (choice == "n")
             {
-                Console.Clear();
-                Console.WriteLine("> going to north...");
-                roomId = 4;
+                roomId = 3;
             }
             else if (choice == "e")
             {
-                Console.Clear();
-                Console.WriteLine("> going to east...");
-                roomId = 2;
+                roomId = 1;
             }
             else
             {
                 Console.WriteLine("THIS CHOICE DOESN'T EXIST!");
+            }
+            if (sentenceWhenMoving.ContainsKey(choice))
+            {
+                Console.Clear();
+                Console.WriteLine(sentenceWhenMoving[choice]);
             }
             return roomId;
         }
@@ -167,19 +174,19 @@ namespace Donjon
             {
                 Console.Clear();
                 Console.WriteLine("> going to north...");
-                roomId = 5;
+                roomId = 4;
             }
             else if (choice == "w")
             {
                 Console.Clear();
                 Console.WriteLine("> going to west...");
-                roomId = 1;
+                roomId = 0;
             }
             else if (choice == "e")
             {
                 Console.Clear();
                 Console.WriteLine("> going to east...");
-                roomId = 3;
+                roomId = 2;
             }
             else
             {
@@ -206,13 +213,13 @@ namespace Donjon
             {
                 Console.Clear();
                 Console.WriteLine("> going to north...");
-                roomId = 6;
+                roomId = 5;
             }
             else if (choice == "w")
             {
                 Console.Clear();
                 Console.WriteLine("> going to west...");
-                roomId = 2;
+                roomId = 1;
             }
             else
             {
@@ -239,7 +246,7 @@ namespace Donjon
             {
                 Console.Clear();
                 Console.WriteLine("> going to south...");
-                roomId = 2;
+                roomId = 1;
             }
             else
             {
