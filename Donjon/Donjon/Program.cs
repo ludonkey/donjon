@@ -28,11 +28,11 @@ namespace Donjon
                 }
                 else if (room_number == 1)
                 {
-                    room_number = Room2(room_number);
+                    room_number = Room2(room_number, sentenceWhenMoving);
                 }
                 else if (room_number == 2)
                 {
-                    room_number = Room3(room_number);
+                    room_number = Room3(room_number, sentenceWhenMoving);
                 }
                 else if (room_number == 3)
                 {
@@ -41,7 +41,7 @@ namespace Donjon
                 }
                 else if (room_number == 4)
                 {
-                    room_number = Room4(room_number);
+                    room_number = Room4(room_number, sentenceWhenMoving);
                 }
                 else if (room_number == 5)
                 {
@@ -156,7 +156,7 @@ namespace Donjon
             return roomId;
         }
 
-        static int Room2(int roomId)
+        static int Room2(int roomId, Dictionary<string, string> sentenceWhenMoving)
         {
             Console.WriteLine("▓▓▓▓▓▓▓╣   ╠▓▓▓▓▓▓▓");
             Console.WriteLine("▓╔═════╣ n ╠═════╗▓");
@@ -172,30 +172,29 @@ namespace Donjon
             string choice = Console.ReadLine();
             if (choice == "n")
             {
-                Console.Clear();
-                Console.WriteLine("> going to north...");
                 roomId = 4;
             }
             else if (choice == "w")
             {
-                Console.Clear();
-                Console.WriteLine("> going to west...");
                 roomId = 0;
             }
             else if (choice == "e")
             {
-                Console.Clear();
-                Console.WriteLine("> going to east...");
                 roomId = 2;
             }
             else
             {
                 Console.WriteLine("THIS CHOICE DOESN'T EXIST!");
             }
+            if (sentenceWhenMoving.ContainsKey(choice))
+            {
+                Console.Clear();
+                Console.WriteLine(sentenceWhenMoving[choice]);
+            }
             return roomId;
         }
 
-        static int Room3(int roomId)
+        static int Room3(int roomId, Dictionary<string, string> sentenceWhenMoving)
         {
             Console.WriteLine("▓▓▓▓▓▓▓╣   ╠▓▓▓▓▓▓▓");
             Console.WriteLine("▓╔═════╣ n ╠═════╗▓");
@@ -211,24 +210,25 @@ namespace Donjon
             string choice = Console.ReadLine();
             if (choice == "n")
             {
-                Console.Clear();
-                Console.WriteLine("> going to north...");
                 roomId = 5;
             }
             else if (choice == "w")
             {
-                Console.Clear();
-                Console.WriteLine("> going to west...");
                 roomId = 1;
             }
             else
             {
                 Console.WriteLine("THIS CHOICE DOESN'T EXIST!");
             }
+            if (sentenceWhenMoving.ContainsKey(choice))
+            {
+                Console.Clear();
+                Console.WriteLine(sentenceWhenMoving[choice]);
+            }
             return roomId;
         }
 
-        private static int Room4(int roomId)
+        private static int Room4(int roomId, Dictionary<string, string> sentenceWhenMoving)
         {
             Console.WriteLine("▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
             Console.WriteLine("▓╔═══════════════╗▓");
@@ -244,13 +244,16 @@ namespace Donjon
             string choice = Console.ReadLine();
             if (choice == "s")
             {
-                Console.Clear();
-                Console.WriteLine("> going to south...");
                 roomId = 1;
             }
             else
             {
                 Console.WriteLine("THIS CHOICE DOESN'T EXIST!");
+            }
+            if (sentenceWhenMoving.ContainsKey(choice))
+            {
+                Console.Clear();
+                Console.WriteLine(sentenceWhenMoving[choice]);
             }
             return roomId;
         }
